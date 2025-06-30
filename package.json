@@ -1,0 +1,36 @@
+{
+  "name": "suspend-resource",
+  "version": "0.0.0",
+  "description": "Ready resource with suspend/resume support",
+  "main": "index.js",
+  "imports": {
+    "events": {
+      "bare": "bare-events",
+      "default": "events"
+    }
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "standard && brittle test.js"
+  },
+  "devDependencies": {
+    "brittle": "^3.1.0",
+    "resolve-reject-promise": "^1.1.0",
+    "standard": "^17.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holepunchto/suspend-resource.git"
+  },
+  "author": "Mathias Buus (@mafintosh)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/holepunchto/suspend-resource/issues"
+  },
+  "homepage": "https://github.com/holepunchto/suspend-resource",
+  "dependencies": {
+    "bare-events": "^2.2.0"
+  }
+}
