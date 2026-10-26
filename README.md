@@ -8,19 +8,19 @@ npm install suspend-resource
 
 ## Usage
 
-``` js
+```js
 const SuspendResource = require('suspend-resource')
 
 class Thing extends SuspendResource {
-  constructor () {
+  constructor() {
     super()
   }
 
-  async _open () {
+  async _open() {
     // open the resource
   }
 
-  async _close () {
+  async _close() {
     // close the resource
   }
 
@@ -44,7 +44,7 @@ await r.suspend() // noop
 await r.resume() // calls _resume once
 await r.resume() // noop
 
-await Promise.all([r.suspend(), r.resume()]) // ends up resumed, since resume is the last method to be called 
+await Promise.all([r.suspend(), r.resume()]) // ends up resumed, since resume is the last method to be called
 
 await r.close()
 ```
