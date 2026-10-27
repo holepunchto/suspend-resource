@@ -1,6 +1,6 @@
 {
   "name": "suspend-resource",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ready resource with suspend/resume support",
   "main": "index.js",
   "imports": {
