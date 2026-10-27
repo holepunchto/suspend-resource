@@ -1,7 +1,7 @@
 const EventEmitter = require('events')
 
 module.exports = class SuspendResource extends EventEmitter {
-  constructor ({ suspended = false } = {}) {
+  constructor({ suspended = false } = {}) {
     super()
 
     this.opening = null
@@ -15,19 +15,19 @@ module.exports = class SuspendResource extends EventEmitter {
     this.suspended = suspended
   }
 
-  ready () {
+  ready() {
     if (this.opening !== null) return this.opening
     this.opening = open(this)
     return this.opening
   }
 
-  close () {
+  close() {
     if (this.closing !== null) return this.closing
     this.closing = close(this)
     return this.closing
   }
 
-  async suspend () {
+  async suspend() {
     this.shouldBeSuspended = true
     if (!this.opened) await this.ready()
 
@@ -52,7 +52,7 @@ module.exports = class SuspendResource extends EventEmitter {
     this.emit('suspend')
   }
 
-  async resume () {
+  async resume() {
     this.shouldBeSuspended = false
     if (!this.opened) await this.ready()
 
@@ -77,24 +77,24 @@ module.exports = class SuspendResource extends EventEmitter {
     this.emit('resume')
   }
 
-  async _open () {
+  async _open() {
     // add impl here
   }
 
-  async _close () {
+  async _close() {
     // add impl here
   }
 
-  async _suspend () {
+  async _suspend() {
     // add impl here
   }
 
-  async _resume () {
+  async _resume() {
     // add impl here
   }
 }
 
-async function open (self) {
+async function open(self) {
   // open after close
   if (self.closing !== null) return
 
@@ -109,7 +109,7 @@ async function open (self) {
   self.emit('ready')
 }
 
-async function close (self) {
+async function close(self) {
   try {
     if (self.opened === false && self.opening !== null) await self.opening
   } catch {

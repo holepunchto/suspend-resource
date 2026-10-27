@@ -53,7 +53,7 @@ test('basic - close when open throws', async function (t) {
   t.is(r.closed, true)
 })
 
-test('ready rejecting emits close', async t => {
+test('ready rejecting emits close', async (t) => {
   t.plan(4)
 
   const r = new Resource()
@@ -135,12 +135,12 @@ test('suspend and resume race conditions', async function (t) {
 
   r._suspend = async function () {
     nrSuspends++
-    await new Promise(resolve => setTimeout(resolve, 500))
+    await new Promise((resolve) => setTimeout(resolve, 500))
   }
 
   r._resume = async function () {
     nrResumes++
-    await new Promise(resolve => setTimeout(resolve, 500))
+    await new Promise((resolve) => setTimeout(resolve, 500))
   }
 
   await r.ready()
